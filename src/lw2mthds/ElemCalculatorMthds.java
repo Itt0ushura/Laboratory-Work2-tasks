@@ -20,7 +20,7 @@ public class ElemCalculatorMthds {
         }
     }
 
-    public static int SumWrong(int sum){
+    public static int SumWrong(int sum){ //Метод що кине в нас помилку, якщо ми ввели не правильний тип даних
         if(sum > 127 || sum <(-128)){ //якщо змінна суми виходить за межі типу даних Byte - кидаємо помилку
             throw new IllegalArgumentException("Byte type supports digits in range from -128 to 127, your is " + sum);
         }
