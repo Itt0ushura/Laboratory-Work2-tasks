@@ -20,11 +20,7 @@ public class ElemCalculatorMthds {
         }
     }
 
-    public static int SumElems(byte[] arr){ //Блок, який сумує елементи массиву
-        int sum = 0; //змінна суми
-        for(int i = 0; i < arr.length; i++){ //цикл, який проводить суму елементів
-            sum += arr[i];
-        }
+    public static int SumWrong(int sum){
         if(sum > 127 || sum <(-128)){ //якщо змінна суми виходить за межі типу даних Byte - кидаємо помилку
             throw new IllegalArgumentException("Byte type supports digits in range from -128 to 127, your is " + sum);
         }
@@ -32,6 +28,13 @@ public class ElemCalculatorMthds {
             System.out.println("Sum of elems: " + sum); //якщо все гаразд - не кидаємо помилку і повертаємо суму
             return sum;
         }
+    }
+    public static int SumElems(byte[] arr){ //Блок, який сумує елементи массиву
+        int sum = 0; //змінна суми
+        for(int i = 0; i < arr.length; i++) { //цикл, який проводить суму елементів
+            sum += arr[i];
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
@@ -44,6 +47,6 @@ public class ElemCalculatorMthds {
 
         SetArray(m); //виконання методу зі створенням масиву
 
-        SumElems(m); //виконання методу з сумою елементів
+        SumWrong(SumElems(m)); //виконання методу з сумою елементів
     }
 }
