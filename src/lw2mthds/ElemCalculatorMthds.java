@@ -38,15 +38,19 @@ public class ElemCalculatorMthds {
     }
 
     public static void main(String[] args) {
-        Scanner ns = new Scanner(System.in, StandardCharsets.UTF_8); //створюємо сканер
+        try {
+            Scanner ns = new Scanner(System.in, StandardCharsets.UTF_8); //створюємо сканер
 
-        System.out.println("Enter length of array: ");
-        byte numbers = ns.nextByte(); //встановлюємо розмір масиву
+            System.out.println("Enter length of array: ");
+            byte numbers = ns.nextByte(); //встановлюємо розмір масиву
 
-        byte[] m = new byte[numbers]; //створюємо масив з заданою кількістю елементів
+            byte[] m = new byte[numbers]; //створюємо масив з заданою кількістю елементів
 
-        SetArray(m); //виконання методу зі створенням масиву
+            SetArray(m); //виконання методу зі створенням масиву
 
-        SumWrong(SumElems(m)); //виконання методу з сумою елементів
+            SumWrong(SumElems(m)); //виконання методу з сумою елементів
+        } catch (InputMismatchException e){ //кидаємо помилку в разі введення в якості кількості елементів масиву не тип Byte
+            System.err.println("Input number of elements in byte format.");
+        }
     }
 }
